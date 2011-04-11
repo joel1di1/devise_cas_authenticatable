@@ -43,6 +43,10 @@ module Devise
   mattr_reader :cas_create_user
   module_eval { alias_method :cas_create_user?, :cas_create_user }
   
+  def self.cas_create_user?
+    :cas_create_user
+  end
+  
   # Return a CASClient::Client instance based on configuration parameters.
   def self.cas_client
     @@cas_client ||= CASClient::Client.new(
